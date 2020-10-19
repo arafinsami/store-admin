@@ -1,0 +1,158 @@
+<div class="container">
+    <mat-card class="add-book-card">
+        <mat-card-header>
+            <mat-card-title>Update Book</mat-card-title>
+        </mat-card-header>
+        <form class="add-book-form" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+            <mat-form-field class="add-book-full-width">
+                <input type="text" matInput formControlName="title" placeholder="Book Title">
+                <mat-error *ngIf="bookForm.get('title').hasError('required') && bookForm.get('title').touched">
+                    Book Title required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-grid-list cols="4" rowHeight="60px" [gutterSize]="'20px'">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="text" matInput formControlName="author" placeholder="Author">
+                        <mat-error
+                            *ngIf="bookForm.get('author').hasError('required') && bookForm.get('author').touched">
+                            Author required
+                        </mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="text" matInput formControlName="publisher" placeholder="Publisher">
+                        <mat-error
+                            *ngIf="bookForm.get('publisher').hasError('required') && bookForm.get('publisher').touched">
+                            Publisher required
+                        </mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="6" rowHeight="60px" [gutterSize]="'20px'">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="date" matInput formControlName="publicationDate">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <mat-select placeholder="Language" formControlName="language">
+                            <mat-option value="English">English</mat-option>
+                            <mat-option value="Bangla">Bangla</mat-option>
+                            <mat-option value="Arabic">Arabic</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <mat-select placeholder="Category" formControlName="category">
+                            <mat-option value="Java">Java</mat-option>
+                            <mat-option value="C#">C#</mat-option>
+                            <mat-option value="Python">Python</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="6" rowHeight="60px" [gutterSize]="'20px'">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="number" matInput formControlName="pages" placeholder="Pages">
+                        <mat-error *ngIf="bookForm.get('pages').hasError('required') && bookForm.get('pages').touched">
+                            Pages required
+                        </mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="text" matInput formControlName="format" placeholder="Format">
+                        <mat-error
+                            *ngIf="bookForm.get('format').hasError('required') && bookForm.get('format').touched">
+                            Format required
+                        </mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="text" matInput formControlName="isbn" placeholder="ISBN">
+                        <mat-error *ngIf="bookForm.get('isbn').hasError('required') && bookForm.get('isbn').touched">
+                            ISBN required
+                        </mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="6" rowHeight="60px" [gutterSize]="'20px'">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="number" matInput formControlName="shippingWeight" placeholder="Shipping Weight">
+                        <mat-error
+                            *ngIf="bookForm.get('shippingWeight').hasError('required') && bookForm.get('shippingWeight').touched">
+                            Shipping Weight required
+                        </mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="number" matInput formControlName="listPrice" placeholder="List Price">
+                        <mat-error
+                            *ngIf="bookForm.get('listPrice').hasError('required') && bookForm.get('listPrice').touched">
+                            List Price required
+                        </mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="number" matInput formControlName="ourPrice" placeholder="Our Price">
+                        <mat-error
+                            *ngIf="bookForm.get('ourPrice').hasError('required') && bookForm.get('ourPrice').touched">
+                            Our Price required
+                        </mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="6" rowHeight="60px" [gutterSize]="'20px'">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="number" matInput formControlName="active" placeholder="Active">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="number" matInput formControlName="stockNumber" placeholder="Stock Number">
+                        <mat-error
+                            *ngIf="bookForm.get('stockNumber').hasError('required') && bookForm.get('stockNumber').touched">
+                            Stock Number required
+                        </mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="add-book-full-width">
+                        <input type="number" matInput placeholder="Photo">
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-form-field class="add-book-full-width">
+                <textarea matInput formControlName="description" placeholder="Description" rows="4"></textarea>
+                <mat-error
+                    *ngIf="bookForm.get('description').hasError('required') && bookForm.get('description').touched">
+                    Description required
+                </mat-error>
+            </mat-form-field>
+
+            Image &nbsp;
+			<input id="tile" type="file" id="bookImage" name="bookImage" (change)="uploadService.fileChangeEvent($event)">
+			<br><br>
+
+            <button class="mat-primary" mat-raised-button [disabled]="!bookForm.valid" type="submit">Save Book</button>
+            <button class="mat-warn" mat-raised-button routerLink="/book-list">Cancel</button>
+        </form>
+    </mat-card>
+</div>

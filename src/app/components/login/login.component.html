@@ -1,0 +1,32 @@
+
+<div class="container">
+  <mat-grid-list cols="6" [style.margin-top]="'20px'">
+    <mat-grid-tile [colspan]="1"></mat-grid-tile>
+    <mat-grid-tile [colspan]="4">
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <p>
+          <mat-form-field class="full-width">
+            <input type="text" matInput class="form-control" formControlName="username" placeholder="User Name">
+            <mat-error *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').touched">
+              User Name required
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field class="full-width">
+            <input type="password" matInput class="form-control" formControlName="password" placeholder="Password">
+            <mat-error *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+              Password required
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <button mat-raised-button color="primary" type="submit" class="button"
+            [disabled]="!loginForm.valid">Login</button>
+        </p>
+      </form>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
